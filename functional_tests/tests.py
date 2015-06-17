@@ -75,8 +75,6 @@ class NewVisitorTest(StaticLiveServerTestCase):  # 1
         # 만족하면 잠자리에 든다.
 
         # self.fail('Finish the test!')
-        import time
-        time.sleep(5)
 
     def test_layout_and_styling(self):
         # 에디스는 메인 페이지를 방문한다
@@ -100,5 +98,3 @@ class NewVisitorTest(StaticLiveServerTestCase):  # 1
             512,
             delta=10
         )
-        import time
-        time.sleep(5)
