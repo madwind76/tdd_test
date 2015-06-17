@@ -23,9 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'fj7@93z0#ip^iewnsg0@r2ln*=0roppog6%qarzce-!u3n5$8y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+TEMPLATE_DEBUG = DEBUG
+
+
+ALLOWED_HOSTS = ['tdd.malware.kr.pe']
 
 
 # Application definition
