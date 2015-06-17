@@ -26,7 +26,7 @@ class NewVisitorTest(LiveServerTestCase):  # 1
         # 웹 페이지 타이틀과 헤더가 'To-Do'를 표시하고 있다
         self.assertIn('To-Do', self.browser.title)  # 5
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('To-Do', header_text)
+        self.assertIn(u'작업 목록 시작', header_text)
 
         # 그녀는 바로 작업을 추가하기로 한다.
         inputbox = self.browser.find_element_by_id('id_new_item')
@@ -64,4 +64,28 @@ class NewVisitorTest(LiveServerTestCase):  # 1
 
         # 만족하면 잠자리에 든다.
 
-        self.fail('Finish the test!')  #
+        # self.fail('Finish the test!')
+
+    def test_layout_and_styling(self):
+        # 에디스는 메인 페이지를 방문한다
+        self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024, 768)
+
+        # 그녀는 입력 상자가 가운데 배치된 것을 본다
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=10
+        )
+
+        # 그녀는 새로운 리스트를 시작하고 입력 상자가
+        # 가운데 배치된 것을 확인한다.
+        inputbox.send_keys('testing\n')
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=10
+        )
+        self.fail('Finish the test!')
