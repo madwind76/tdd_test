@@ -1,10 +1,10 @@
 # coding: utf-8
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-class NewVisitorTest(LiveServerTestCase):  # 1
+class NewVisitorTest(StaticLiveServerTestCase):  # 1
 
     def setUp(self):  # 2
         self.browser = webdriver.Firefox()
@@ -65,6 +65,8 @@ class NewVisitorTest(LiveServerTestCase):  # 1
         # 만족하면 잠자리에 든다.
 
         # self.fail('Finish the test!')
+        import time
+        time.sleep(5)
 
     def test_layout_and_styling(self):
         # 에디스는 메인 페이지를 방문한다
@@ -88,4 +90,5 @@ class NewVisitorTest(LiveServerTestCase):  # 1
             512,
             delta=10
         )
-        self.fail('Finish the test!')
+        import time
+        time.sleep(5)
