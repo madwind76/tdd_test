@@ -27,7 +27,6 @@ DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
-
 ALLOWED_HOSTS = ['tdd.malware.kr.pe']
 
 

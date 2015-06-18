@@ -5,7 +5,7 @@ import random
 REPO_URL = 'https://github.com/madwind76/tdd_test.git'
 
 def deploy():
-    site_folder = 'home/%s/sites/%s' % (env.user, env.host)
+    site_folder = '/home/%s/sites/%s' % (env.user, env.host)
     source_folder = site_folder + '/source'
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
@@ -47,14 +47,13 @@ def _update_virtualenv(source_folder):
     virtualenv_folder = source_folder + '/../virtualenv'
     if not exists(virtualenv_folder + '/bin/pip'):
         run('virtualenv --no-site-packages %s' % (virtualenv_folder,))
-    run('%s/bin/pip install -r %/requirements.txt' % (
+    run('%s/bin/pip install -r %s/requirements.txt' % (
         virtualenv_folder, source_folder
     ))
 
 
 def _update_static_files(source_folder):
-    run('cd %s && ../virtualenv/bin/python manage.py' +
-        ' collectstatic --noinput' % (
+    run('cd %s && ../virtualenv/bin/python manage.py collectstatic --noinput' % (
             source_folder,))
 
 
