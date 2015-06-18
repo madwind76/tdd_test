@@ -27,7 +27,10 @@ DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 ALLOWED_HOSTS = ['tdd.malware.kr.pe']
 
 
